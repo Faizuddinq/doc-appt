@@ -35,7 +35,7 @@ app.use(express.json());
 
 // Root Endpoint
 app.get("/", (req, res) => {
-    res.json({ message: "Hello from POS Server!" });
+    res.json({ message: "Hello from Doc-Care Server!" });
 });
 
 // Other Endpoints
