@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
-require("./db/conn");
+const connectDB = require("./db/conn");
 const userRouter = require("./routes/userRoutes");
 const doctorRouter = require("./routes/doctorRoutes");
 const appointRouter = require("./routes/appointRoutes");
@@ -9,13 +8,14 @@ const notificationRouter = require("./routes/notificationRouter");
 
 const app = express();
 const port = process.env.PORT || 5015;
+connectDB();
 
 const allowedOrigins= [
     "http://localhost:5173",
     "https://doc-care-frontend.vercel.app",
     "https://www.doc-care-frontend.vercel.app",
     "http://doc-care-frontend.vercel.app",
-    "http://www.doc-care-frontend.vercel.app",
+    "https://www.doc-care-frontend.vercel.app",
   ];
   
 
