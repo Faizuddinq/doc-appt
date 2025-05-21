@@ -12,6 +12,7 @@ connectDB();
 
 const allowedOrigins= [
     "http://localhost:5173",
+    "http://localhost:3000",
     "https://doc-care-frontend.vercel.app",
     "https://www.doc-care-frontend.vercel.app",
     "http://doc-care-frontend.vercel.app",
