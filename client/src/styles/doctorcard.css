@@ -1,35 +1,56 @@
 @import url(app.css);
+/* doctorcard.css */
 
-.card {
+.doctor-card {
+  width: 12rem; /* Tailwind's w-48 */
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #1f2937; /* Tailwind's text-gray-800 */
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-radius: 10px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 0 10px 0 rgb(188, 188, 188);
+  align-items: center;
 }
 
-.card-img {
-  margin: 0 auto;
+.doctor-avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 2px solid #3b82f6; /* Tailwind's blue-500 */
+  margin-bottom: 0.75rem;
 }
 
-.card-img img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.doctor-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
 
-.card-name {
-  margin: 0 auto;
-  font-size: 1.2rem;
+.doctor-detail {
+  color: #4b5563; /* Tailwind's text-gray-600 */
+  margin-bottom: 0.25rem;
+}
+
+.doctor-phone {
+  margin-bottom: 0.75rem;
 }
 
 .appointment-btn {
-  font-size: 0.8rem;
-  padding: 1rem;
-  margin: 1rem auto;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  background-color: #2563eb; /* Tailwind's blue-600 */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.card p {
-  width: 100%;
+.appointment-btn:hover {
+  background-color: #1d4ed8; /* Tailwind's blue-700 */
 }

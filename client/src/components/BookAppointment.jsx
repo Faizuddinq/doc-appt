@@ -8,20 +8,16 @@ const BookAppointment = ({ setModalOpen, ele }) => {
   const [formDetails, setFormDetails] = useState({
     date: "",
     time: "",
-    age:"",
-    bloodGroup:"",
-    gender:"",
+    age: "",
+    bloodGroup: "",
+    gender: "",
     number: "",
-    familyDiseases:"",
-    // prescription:"",
+    familyDiseases: "",
   });
 
   const inputChange = (e) => {
     const { name, value } = e.target;
-    return setFormDetails({
-      ...formDetails,
-      [name]: value,
-    });
+    setFormDetails((prev) => ({ ...prev, [name]: value }));
   };
 
   const bookAppointment = async (e) => {
@@ -37,9 +33,8 @@ const BookAppointment = ({ setModalOpen, ele }) => {
             age: formDetails.age,
             bloodGroup: formDetails.bloodGroup,
             gender: formDetails.gender,
-            number:formDetails.number,
+            number: formDetails.number,
             familyDiseases: formDetails.familyDiseases,
-            // prescription: formDetails.prescription,
             doctorname: `${ele?.userId?.firstname} ${ele?.userId?.lastname}`,
           },
           {
@@ -56,103 +51,90 @@ const BookAppointment = ({ setModalOpen, ele }) => {
       );
       setModalOpen(false);
     } catch (error) {
-      return error;
+      console.error(error);
     }
   };
 
   return (
-    <>
-      <div className="modal flex-center">
-        <div className="modal__content">
-          <h2 className="page-heading">Book Appointment</h2>
+    <div className="modal-overlay">
+      <div className="modal-box">
+        <div className="modal-header">
+          <h2 className="modal-title">Book Appointment</h2>
           <IoMdClose
-            onClick={() => {
-              setModalOpen(false);
-            }}
-            className="close-btn"
+            className="modal-close-icon"
+            onClick={() => setModalOpen(false)}
           />
-          <div className="register-container flex-center book">
-            <form className="register-form">
-              <input
-                type="date"
-                name="date"
-                className="form-input"
-                value={formDetails.date}
-                onChange={inputChange}
-              />
-              <input
-                type="time"
-                name="time"
-                className="form-input"
-                value={formDetails.time}
-                onChange={inputChange}
-              />
-             <input
-              type="number"
-              name="age"
-              placeholder="Age"
-              className="form-input"
-              value={formDetails.age}
-              onChange={inputChange}
-              required
-            />
-            <input
-              type="text"
-              name="bloodGroup"
-              placeholder="Blood Group (Optional)"
-              className="form-input"
-              value={formDetails.bloodGroup}
-              onChange={inputChange}
-            />
-            <select
-              name="gender"
-              className="form-input"
-              value={formDetails.gender}
-              onChange={inputChange}
-              required
-            >
-              
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-            <input
-              type="number"
-              name="number"
-              placeholder="Mobile Number"
-              className="form-input"
-              value={formDetails.number}
-              onChange={inputChange}
-              required
-            />
-            <textarea
-              name="familyDiseases"
-              placeholder="Family Diseases"
-              className="form-input"
-              value={formDetails.familyDiseases}
-              onChange={inputChange}
-            ></textarea>
-            {/* <input
-              type="file"
-              name="prescription"
-              accept="application/pdf"
-              className="form-input"
-              onChange={fileChange}
-            /> */}
-
-              <button
-                type="submit"
-                className="btn form-btn"
-                onClick={bookAppointment}
-              >
-                book
-              </button>
-            </form>
-          </div>
         </div>
+
+        <form className="appointment-form" onSubmit={bookAppointment}>
+          <input
+            type="date"
+            name="date"
+            value={formDetails.date}
+            onChange={inputChange}
+            className="form-control"
+            required
+          />
+          <input
+            type="time"
+            name="time"
+            value={formDetails.time}
+            onChange={inputChange}
+            className="form-control"
+            required
+          />
+          <input
+            type="number"
+            name="age"
+            placeholder="Age"
+            value={formDetails.age}
+            onChange={inputChange}
+            className="form-control"
+            required
+          />
+          <input
+            type="text"
+            name="bloodGroup"
+            placeholder="Blood Group (Optional)"
+            value={formDetails.bloodGroup}
+            onChange={inputChange}
+            className="form-control"
+          />
+          <select
+            name="gender"
+            value={formDetails.gender}
+            onChange={inputChange}
+            className="form-control"
+            required
+          >
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <input
+            type="number"
+            name="number"
+            placeholder="Mobile Number"
+            value={formDetails.number}
+            onChange={inputChange}
+            className="form-control"
+            required
+          />
+          <textarea
+            name="familyDiseases"
+            placeholder="Family Diseases"
+            value={formDetails.familyDiseases}
+            onChange={inputChange}
+            className="form-control"
+          ></textarea>
+
+          <button type="submit" className="form-button">
+            Book
+          </button>
+        </form>
       </div>
-    </>
+    </div>
   );
 };
 
