@@ -11,6 +11,8 @@ import React, { lazy, Suspense } from "react";
 import Loading from "./components/Loading";
 import Dashboard from "./pages/Dashboard";
 
+import "./App.css"
+
 const Aprofile = lazy(()=>import("./components/Aprofile"))
 const Home = lazy(() => import("./pages/Home"));
 const Appointments = lazy(() => import("./pages/Appointments"));
@@ -21,6 +23,9 @@ const DasHome = lazy(() => import("./components/Home"));
 const Notifications = lazy(() => import("./pages/Notifications"));
 const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
 const Error = lazy(() => import("./pages/Error"));
+
+
+
 
 function App() {
   const [userRole, setUserRole] = useState("");
